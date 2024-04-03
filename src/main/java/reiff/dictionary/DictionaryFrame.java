@@ -10,25 +10,19 @@ import java.io.IOException;
 import java.util.List;
 
 public class DictionaryFrame extends JFrame {
-    private JTextField wordField;
-    private JTextArea definitionsArea;
+    private final JTextField wordField;
+    private final JTextArea definitionsArea;
     private EnglishDictionary dictionary;
 
     public DictionaryFrame() {
         try {
             dictionary = new EnglishDictionary();
-        } catch (IOException e) {
+        } catch (IOException | CsvValidationException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error loading the dictionary: " + e.getMessage(),
                     "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (CsvValidationException e) {
-            throw new RuntimeException(e);
         }
 
-        initializeGui();
-    }
-
-    private void initializeGui() {
         final JFrame frame = new JFrame("DictionaryFrame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
