@@ -1,4 +1,5 @@
 package reiff.dictionary;
+
 import com.opencsv.exceptions.CsvValidationException;
 import org.junit.jupiter.api.Test;
 
