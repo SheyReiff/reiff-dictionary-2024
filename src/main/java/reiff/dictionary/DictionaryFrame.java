@@ -21,42 +21,50 @@ public class DictionaryFrame extends JFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error loading the dictionary: " + e.getMessage(),
                     "Error", JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
         }
 
-        final JFrame frame = new JFrame("DictionaryFrame");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        setSize(400, 300);
+        setTitle("DictionaryFrame");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new JPanel(new BorderLayout());
+        JPanel main = new JPanel();
+        main.setLayout(new BorderLayout());
+        setContentPane(main);
+
+        JPanel north = new JPanel();
+        main.add(north, BorderLayout.NORTH);
 
         wordField = new JTextField();
-        wordField.setPreferredSize(new Dimension(frame.getWidth(), 30));
+        wordField.setPreferredSize(new Dimension(getWidth(), 30));
+        definitionsArea = new JTextArea();
+        definitionsArea.setEditable(false);
+
+        north.add(wordField);
+
+        main.add(new JScrollPane(definitionsArea), BorderLayout.CENTER);
+
+        setupListeners();
+        setVisible(true);
+    }
+
+    private void setupListeners() {
         wordField.addKeyListener(new KeyListener() {
             @Override
-            public void keyTyped(KeyEvent e) {
-            }
+            public void keyTyped(KeyEvent e) {}
 
             @Override
-            public void keyPressed(KeyEvent e) {
-            }
+            public void keyPressed(KeyEvent e) {}
 
             @Override
             public void keyReleased(KeyEvent e) {
                 String word = wordField.getText().trim();
-                List<String> definitions = dictionary.getDefinition(word);
+                List<String> definitions = (dictionary != null) ? dictionary.getDefinition(word) : null;
                 displayDefinitions(definitions);
             }
         });
-
-        definitionsArea = new JTextArea();
-        definitionsArea.setEditable(false);
-
-        panel.add(wordField, BorderLayout.NORTH);
-        panel.add(new JScrollPane(definitionsArea), BorderLayout.CENTER);
-
-        frame.add(panel);
-        frame.setVisible(true);
     }
+
 
     private void displayDefinitions(List<String> definitions) {
         definitionsArea.setText("");
@@ -69,7 +77,3 @@ public class DictionaryFrame extends JFrame {
         }
     }
 }
-
-
-
-
