@@ -45,7 +45,6 @@ public class DictionaryFrame extends JFrame {
         main.add(new JScrollPane(definitionsArea), BorderLayout.CENTER);
 
         setupListeners();
-        setVisible(true);
     }
 
     private void setupListeners() {
