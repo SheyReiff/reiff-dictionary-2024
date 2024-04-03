@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,7 +47,7 @@ class EnglishDictionaryTest {
         List<String> definitions = dictionary.getDefinition("zip");
 
         // then
-        assertArrayEquals(new String[]{}, definitions.toArray(new String[0]));
+        assertEquals(new ArrayList<String>(), definitions);
     }
 
 }

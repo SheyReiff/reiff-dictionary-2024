@@ -42,7 +42,7 @@ public class DictionaryFrame extends JFrame {
 
             @Override
             public void keyReleased(KeyEvent e) {
-                String word = wordField.getText().trim().toLowerCase();
+                String word = wordField.getText().trim();
                 List<String> definitions = dictionary.getDefinition(word);
                 displayDefinitions(definitions);
             }
