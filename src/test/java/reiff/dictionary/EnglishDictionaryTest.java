@@ -1,10 +1,9 @@
-import reiff.dictionary.EnglishDictionary;
+package reiff.dictionary;
 import com.opencsv.exceptions.CsvValidationException;
 import org.junit.jupiter.api.Test;
 
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

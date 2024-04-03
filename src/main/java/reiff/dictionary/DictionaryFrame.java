@@ -25,11 +25,11 @@ public class DictionaryFrame extends JFrame {
             throw new RuntimeException(e);
         }
 
-        initializeGUI();
+        initializeGui();
     }
 
-    private void initializeGUI() {
-        JFrame frame = new JFrame("DictionaryFrame");
+    private void initializeGui() {
+        final JFrame frame = new JFrame("DictionaryFrame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 300);
 
