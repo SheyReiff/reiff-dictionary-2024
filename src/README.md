@@ -1,4 +1,4 @@
-## English Dictionary
+# English Dictionary
 
 
 This Java application serves as an 
@@ -9,7 +9,7 @@ meanings and enhance vocabulary.
 
 ![Screenshots English Dictionary.png](..%2FScreenshots%2FScreenshots%20English%20Dictionary.png)
 
+# Resources
 
-## Links
-https://github.com/SheyReiff/reiff-dictionary-2024
+[englishDictionary.csv](main%2Fresources%2FenglishDictionary.csv)
 
